@@ -12,7 +12,7 @@ class Quiz extends Component {
         return (
             <div>
                 <div className="QuizQuestion">
-
+                    aaaa
                 </div>
             </div>)
     }
