@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import QuizQuestion from './QuizQuestion.js';
 import QuizEnd from './QuizEnd.js';
 
@@ -11,6 +11,8 @@ class Quiz extends Component {
     }
     //
     render() {
+        const isQuizEnd = ((this.state.quiz_position - 1) === quizData.quiz_questions.length);
+
         return (
             <div>
                 <QuizEnd />
