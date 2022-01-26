@@ -21,7 +21,7 @@ class QuizQuestion extends Component {
                                 )
                             }
 
-                        )};
+                        )}
 
 
                     </ul>
