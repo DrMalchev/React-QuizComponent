@@ -7,31 +7,34 @@ let quizData = require('./quiz_data.json');
 class Quiz extends Component {
     constructor(props) {
         super(props);
-        this.setState(state => { return { quiz_position = state.quiz_position + 1 } })
-        //
-        showNextQuestion() {
-            this.setState({ quiz_position: 1 })
-        }
+        this.state = { quiz_position: 1 }
+    }
+    //
+    showNextQuestion(){
+        this.setState(oldstate => {
+            quz_position = oldstate.quiz_position+1;  
+        })
+    }
 
-        render() {
-            const isQuizEnd = ((this.state.quiz_position - 1) === quizData.quiz_questions.length);
-            if (!isQuizEnd) {
-                return (
-                    <div>
-                        <QuizQuestion showNextQuestionHandler={this.showNextQuestion.bind(this)} quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
-                    </div>)
-            }
-            else {
-                return (<div>
-                    <QuizEnd />
-
+    render() {
+        const isQuizEnd = ((this.state.quiz_position - 1) === quizData.quiz_questions.length);
+        if (!isQuizEnd) {
+            return (
+                <div>                    
+                    <QuizQuestion showNextQuestionHandler ={this.showNextQuestion.bind(this)} quiz_question={quizData.quiz_questions[this.state.quiz_position - 1]} />
                 </div>)
-            }
-
         }
-
-
+        else{
+            return (<div>
+                <QuizEnd />
+                
+            </div>)
+        }
 
     }
+
+
+
+}
 
 export default Quiz;
