@@ -9,11 +9,11 @@ class QuizQuestion extends Component {
 
     handleClick(buttonText) {
         if (buttonText === this.props.quiz_question.answer) {
-            this.setState((state) =>  {return {incorrectAnswer : false} })
+            this.setState((state) => { return { incorrectAnswer: false } })
             this.props.showNextQuestionHandler()
         }
         else {
-            this.setState((state) =>  {return {incorrectAnswer : true} })
+            this.setState((state) => { return { incorrectAnswer: true } })
         }
     }
 
@@ -31,13 +31,11 @@ class QuizQuestion extends Component {
                                     <QuizQuestionButton clickHandler={this.handleClick.bind(this)} key={index} button_text={answer_option} />
                                 )
                             }
-
                         )}
-
 
                     </ul>
                 </section>
-                {this.state.incorrectAnswer ? <p className = 'error'>Sorry, that's not right</p> : null}
+                {this.state.incorrectAnswer ? <p className='error'>Sorry, that's not right</p> : null}
             </main>
         )
 
